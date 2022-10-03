@@ -1,0 +1,17 @@
+/*********************************************
+ * OPL 22.1.0.0 Data
+ * Author: mars
+ * Creation Date: 2 Oct 2022 at 22:38:14
+ *********************************************/
+
+SheetConnection excelSheet("5_data.xlsx");
+
+nProducts from SheetRead(excelSheet, "nProducts");	// Select and define cell name
+
+p from SheetRead(excelSheet, "Profit");	// Find in: Excel -> Fomulars -> Defined name -> Name manager
+t from SheetRead(excelSheet, "Data2!C2:C11");
+m from SheetRead(excelSheet, "Data2!D2:D11");
+d from SheetRead(excelSheet, "Data2!E2:E11");
+
+AvailTime from SheetRead(excelSheet, "Data1!B2");
+AvailMaterial from SheetRead(excelSheet, "Data1!C2");

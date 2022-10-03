@@ -1,0 +1,25 @@
+/*********************************************
+ * OPL 22.1.0.0 Data
+ * Author: mars
+ * Creation Date: 3 Oct 2022 at 23:11:30
+ *********************************************/
+
+// connection
+SheetConnection excelSheet("5_data.xlsx");
+
+// read
+nProducts from SheetRead(excelSheet, "nProducts");	// Select and define cell name
+
+p from SheetRead(excelSheet, "Profit");	// Find in: Excel -> Fomulars -> Defined name -> Name manager
+t from SheetRead(excelSheet, "Data2!C2:C11");
+m from SheetRead(excelSheet, "Data2!D2:D11");
+d from SheetRead(excelSheet, "Data2!E2:E11");
+
+AvailTime from SheetRead(excelSheet, "Data1!B2");
+AvailMaterial from SheetRead(excelSheet, "Data1!C2");
+
+// write
+SheetConnection resultSheet("6_solution_5.xlsx");
+
+x to SheetWrite(resultSheet, "Result!A1:A10"); // Bigger than data range -> ok ex: A1:A100 
+z to SheetWrite(resultSheet, "Result!B1");

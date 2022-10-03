@@ -1,0 +1,9 @@
+/*********************************************
+ * OPL 22.1.0.0 Data
+ * Author: mars
+ * Creation Date: 2 Oct 2022 at 23:34:38
+ *********************************************/
+SheetConnection sheet ("5_2xlsx.xlsx");
+NJob from SheetRead(sheet, "Njob");
+NMachine from SheetRead(sheet, "NMachine");
+c from SheetRead(sheet, "Cost");
