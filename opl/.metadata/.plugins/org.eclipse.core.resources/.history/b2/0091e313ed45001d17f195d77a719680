@@ -1,0 +1,11 @@
+/*********************************************
+ * OPL 22.1.0.0 Data
+ * Author: mars
+ * Creation Date: 7 Oct 2022 at 00:10:30
+ *********************************************/
+
+SheetConnection sheet("tsp_data.xlsx");
+
+NVertex from SheetRead(sheet, "NVertex");
+
+c from SheetRead(sheet, "DistanceTable");
