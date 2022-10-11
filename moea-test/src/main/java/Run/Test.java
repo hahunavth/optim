@@ -1,4 +1,4 @@
-package org.example;
+package Run;
 
 import org.example.Model.GraphData;
 import org.example.Parser.TSPParser;
