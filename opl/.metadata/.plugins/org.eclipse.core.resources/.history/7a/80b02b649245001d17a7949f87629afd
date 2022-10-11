@@ -67,16 +67,6 @@
 			</ref>
             		
         </config>
-        		
-        <config default="false" name="TSP" category="opl">
-            			
-            <ref name="TSP.mod" type="model">
-			</ref>
-            			
-            <ref name="TSP_data.dat" type="data">
-			</ref>
-            		
-        </config>
         	
     </configs>
     	
