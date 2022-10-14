@@ -1,4 +1,4 @@
-package org.example.Algorithm;
+package org.MOEABased.Algorithm;
 
 import java.util.Properties;
 

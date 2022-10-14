@@ -1,15 +1,12 @@
-package org.example.Parser;
+package org.Main.Parser;
 
-import org.example.Model.AbstractData;
-import org.example.Model.GraphData;
+import org.Main.Model.GraphData;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Scanner;
 import java.util.stream.DoubleStream;
-import java.util.stream.IntStream;
 
 public class TSPParser implements IParser{
 
@@ -75,6 +72,6 @@ public class TSPParser implements IParser{
         ).toArray();
         int id = (int) items[0];
 
-        target.getData().put(id, new Double[] {items[1], items[2]});
+        target.put(id, new Double[] {items[1], items[2]});
     }
 }

@@ -1,4 +1,4 @@
-package org.example.Customize;
+package org.MOEABased.Customize;
 
 import org.apache.commons.cli.CommandLine;
 import org.moeaframework.analysis.diagnostics.DiagnosticTool;

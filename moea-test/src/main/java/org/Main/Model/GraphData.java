@@ -1,13 +1,8 @@
-package org.example.Model;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+package org.Main.Model;
 
 import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.List;
 
-public class GraphData extends AbstractData<HashMap<Integer, Double[]>> {
+public class GraphData extends AbstractData<Integer, Double[]> implements IGraphData {
     private String name;
     private String comment;
     private String type;
@@ -58,4 +53,16 @@ public class GraphData extends AbstractData<HashMap<Integer, Double[]>> {
         this.edge_weight_type = edge_weight_type;
     }
 
+    @Override
+    public int getSize() {
+        return this.getData().size();
+    }
+
+    @Override
+    public double getDistance(int fromId, int toId) {
+        Double[] a = this.getData().get(this.getKeyIndexer().getKey(fromId));
+        Double[] b = this.getData().get(this.getKeyIndexer().getKey(toId));
+
+        return Math.sqrt(Math.pow(a[0] - b[0], 2) + Math.pow(a[1] - b[1], 2));
+    }
 }

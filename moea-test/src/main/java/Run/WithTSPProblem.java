@@ -1,9 +1,6 @@
 package Run;
-import org.example.Problems.MOTSP;
-import org.moeaframework.Analyzer;
+import org.MOEABased.Problems.MOTSP;
 import org.moeaframework.Executor;
-import org.moeaframework.Instrumenter;
-import org.moeaframework.analysis.collector.Accumulator;
 import org.moeaframework.analysis.plot.Plot;
 import org.moeaframework.core.NondominatedPopulation;
 import org.moeaframework.core.Solution;
@@ -26,9 +23,9 @@ public class WithTSPProblem {
 
         Executor executor = new Executor()
                 .withProblemClass(MOTSP.class)
-                .withAlgorithm("RandomWalker")
+                .withAlgorithm("NSGAII")
 //                .withProperty("populationSize", 500)
-                .withMaxEvaluations(10000)
+                .withMaxEvaluations(1000000)
 //                .withInstrumenter(instrumenter)
                 .distributeOnAllCores()
                 ;

@@ -1,4 +1,4 @@
-package org.example.Problems;
+package org.MOEABased.Problems;
 
 import org.moeaframework.core.Solution;
 import org.moeaframework.core.variable.EncodingUtils;

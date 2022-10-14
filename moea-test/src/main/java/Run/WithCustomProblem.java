@@ -1,6 +1,6 @@
 package Run;
 
-import org.example.Problems.MyCustomProblem;
+import org.MOEABased.Problems.MyCustomProblem;
 import org.moeaframework.Analyzer;
 import org.moeaframework.Executor;
 import org.moeaframework.Instrumenter;

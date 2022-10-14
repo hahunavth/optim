@@ -1,12 +1,10 @@
-package org.example.Problems;
+package org.MOEABased.Problems;
 
-import jmetal.encodings.variable.Int;
-import org.example.Model.GraphData;
-import org.example.Parser.TSPParser;
+import org.Main.Model.GraphData;
+import org.Main.Parser.TSPParser;
 import org.moeaframework.core.Solution;
 import org.moeaframework.core.variable.EncodingUtils;
 import org.moeaframework.core.variable.Permutation;
-import org.moeaframework.core.variable.RealVariable;
 import org.moeaframework.problem.AbstractProblem;
 
 import java.io.FileNotFoundException;
@@ -15,34 +13,26 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class MOTSP extends AbstractProblem {
 
-    private final GraphData data;
-    private final List<Integer> keyList;
     private Random rand;
-    private int max, min;
+    public static GraphData data;
 
     public MOTSP () throws FileNotFoundException {
         super(1, 1);
         TSPParser parser = new TSPParser();
-
-        this.data = parser.Parse("/home/kryo/Desktop/optim/moea-test/src/main/resources/vm1084.tsp");
-
-        this.keyList = data.getData().keySet().stream().sorted().collect(Collectors.toList());
-        this.max = Collections.max(this.keyList);
-        this.min = Collections.min(this.keyList);
-
+        if (data == null) {
+            data = parser.Parse("/home/kryo/Desktop/optim/moea-test/src/main/resources/eil51.tsp");
+        }
         this.rand = new Random();
     }
 
     public MOTSP (GraphData data) {
         super(1, 2);
 
-        this.data = data;
-        this.keyList = data.getData().keySet().stream().sorted().collect(Collectors.toList());
-        this.max = Collections.max(this.keyList);
-        this.min = Collections.min(this.keyList);
+        MOTSP.data = data;
 
         this.rand = new Random();
     }
@@ -54,8 +44,8 @@ public class MOTSP extends AbstractProblem {
         double mae = 0;
 
         for(int i = 0; i < permutation.length - 1; i++) {
-            Double[] coor1 = data.getData().get(permutation[i] + this.min);
-            Double[] coor2 = data.getData().get(permutation[i+1] + this.min);
+            Double[] coor1 = data.getDataById(permutation[i]); // data.getData().get(permutation[i] + this.min);
+            Double[] coor2 = data.getDataById(permutation[i+1]); // data.getData().get(permutation[i+1] + this.min);
 
             mse += euclideanDistance(coor1, coor2);
             mae += MAEDistance(coor1, coor2);
@@ -68,12 +58,13 @@ public class MOTSP extends AbstractProblem {
     @Override
     public Solution newSolution() {
         Solution solution = new Solution(numberOfVariables, numberOfObjectives);
-        List<Integer> keys = new ArrayList<>(this.keyList);
+        List<Integer> keys = IntStream.range(0, data.getSize())
+                .boxed().collect(Collectors.toList());
 
-        Permutation var = EncodingUtils.newPermutation(this.keyList.size());
-        for (int i = 0; i < this.keyList.size(); i++) {
+        Permutation var = EncodingUtils.newPermutation(data.getSize());
+        for (int i = 0; i < data.getSize(); i++) {
             int id = this.rand.nextInt(keys.size());
-            var.insert(i, keys.get(id) - this.min);
+            var.insert(i, keys.get(id));
             keys.remove(id);
         }
         solution.setVariable(0, var);

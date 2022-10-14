@@ -1,15 +1,9 @@
 package Run;
 
-import org.example.Model.GraphData;
-import org.example.Parser.TSPParser;
-import org.example.Problems.MOTSP;
+import org.Main.Model.GraphData;
+import org.Main.Parser.TSPParser;
+import org.MOEABased.Problems.MOTSP;
 import org.moeaframework.core.Solution;
-import org.moeaframework.core.Variable;
-import org.moeaframework.core.variable.EncodingUtils;
-import org.moeaframework.core.variable.Permutation;
-
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public class Test {
     public static void main (String[] args) {
@@ -25,7 +19,7 @@ public class Test {
             problem.evaluate(solution);
 
             System.out.println(solution.getObjective(0));
-            System.out.println(solution.getObjective(1));
+//            System.out.println(solution.getObjective(1));
 //            for (int i = 0; i < solution.getNumberOfVariables(); i++) {
 //                System.out.println();
 //            }
