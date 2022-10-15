@@ -39,7 +39,7 @@ public class ACO {
     }
 
     public void run() {
-        IntStream.rangeClosed(1, 10)
+        IntStream.rangeClosed(1, 30)
                 .forEach(i -> {
                     solve();
                 });

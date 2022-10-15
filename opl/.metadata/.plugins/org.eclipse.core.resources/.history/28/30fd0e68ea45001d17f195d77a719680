@@ -1,7 +1,0 @@
-/*********************************************
- * OPL 22.1.0.0 Data
- * Author: mars
- * Creation Date: 7 Oct 2022 at 00:10:30
- *********************************************/
-NVertex = 4;
-//SheetConnection excelSheet("5_data.xlsx");
