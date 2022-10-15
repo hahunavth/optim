@@ -1,6 +1,6 @@
 package org.Main.Algorithm.Interfaces;
 
-class GAParameters {
+public class GAParameters {
     private double uniformRate = 0.5;
     private double mutationRate = 0.025;
     private int tournamentSize = 5;
