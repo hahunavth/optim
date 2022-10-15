@@ -14,7 +14,6 @@ public class ACO {
 
     private int numberOfCities;
     private int numberOfAnts;
-//    private double[][] graph;
     private IGraphData graph;
     private double[][] trails;
     private final List<Ant> ants = new ArrayList<>();

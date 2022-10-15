@@ -54,7 +54,9 @@ public class KeyIndexer<K> {
 
     public void put(K k) {
         this.id2Key.add(k);
-        this.key2Id.put(k, this.id2Key.size() - 1);
+        if(!this.key2Id.containsKey(k))
+            this.key2Id.put(k, this.id2Key.size() - 1);
+        else throw new RuntimeException("Duplicate key!");
     }
 
 }

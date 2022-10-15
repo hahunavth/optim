@@ -1,4 +1,4 @@
-package Run;
+package org.Run;
 
 import org.MOEABased.Problems.MyCustomProblem;
 import org.moeaframework.Analyzer;
